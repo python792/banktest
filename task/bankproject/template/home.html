@@ -1,0 +1,195 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Leadership Event HTML5 Bootstrap v5 Template</title>
+
+        <!-- CSS FILES -->
+        <link rel="preconnect" href="{% static 'https://fonts.googleapis.com' %}">
+
+        <link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}" crossorigin>
+
+        <link href="{% static 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap' %}" rel="stylesheet">
+
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/bootstrap-icons.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/templatemo-leadership-event.css' %}" rel="stylesheet">
+
+<!--
+
+TemplateMo 575 Leadership Event
+
+https://templatemo.com/tm-575-leadership-event
+
+-->
+          <style>
+        .navbar-nav.navbar-center{
+        position:absolute;
+        left:50%;
+        transform:translatex(-50%);
+        }
+    </style>
+        <style>
+            .site-footer{
+            background-color:#0B0B45;
+            width:100%;
+
+            }
+            .footer-container{
+            height:2px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <a href="index.html" class="navbar-brand mx-auto mx-lg-0">
+                    <i class="bi-bullseye brand-logo"></i>
+                    <span class="brand-text">TEZA <br> Online Banking</span>
+                </a>
+                .
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+<!--                    <ul class="navbar-nav ms-auto">-->
+<!--                   <ul class="nav justify-content-center">-->
+                     <ul class="nav navbar-nav navbar-center">
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_1">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="{% url 'bankapp:log' %}">Login</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="{% url 'bankapp:regis' %}">Register</a>
+                        </li>
+
+		  <li class="nav-item dropdown {% if 'bankapp' in request.path %} active {% endif %}" style="font-size:18px;">
+         <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Branches
+          </a>
+
+          <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+
+            {% for i in branch %}
+            <a class="dropdown-item" href="https://en.wikipedia.org/wiki/{{i.name}}"><li>{{i.name}}</li></a>
+            {% endfor %}
+
+          </ul>
+        </li>
+
+                          <li class="nav-item">
+                            <a class="nav-link click-scroll" href="{% url 'bankapp:home' %}">Logout</a>
+                        </li>
+
+
+
+<!--                        <li>-->
+<!--                        <a class="nav-link click-scroll" href="#section_4">Branches</a>-->
+<!--                        </li>-->
+
+<!--                        <li class="nav-item">-->
+<!--                            <a class="nav-link custom-btn btn d-none d-lg-block" href="#">Buy Tickets</a>-->
+<!--                        </li>-->
+
+
+
+                    </ul>
+                <div>
+                        
+            </div>
+        </nav>
+
+        <main>
+
+            <section class="hero" id="section_1">
+                <div class="container">
+                    <div class="row">
+
+
+                        <div class="col-lg-5 col-12 m-auto">
+                            <div class="hero-text">
+                                <img src="{% static 'images/bank1.jpg' %}" class="highlight-image img-fluid"  height="1800px" width="100px" alt="">
+                                                <a class="custom-btn btn custom-link mt-3" href="{% url 'bankapp:log' %}">Banking</a>;
+                                <!--                                <h4 class="text-white mb-4"><u class="text-info">Leadership</u> Conference 2022</h4>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+            <div class="col-lg-12 col-12">
+                            <br>
+                            <h3 class="mb-3">The importance of TEZA online banking in 2022</h3>
+                            <p>Leadership Event is one-page Bootstrap v5.1.3 CSS layout for your website. Thank you for choosing TemplateMo website where you can instantly download free CSS templates at no cost.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut dolore.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut dolore
+                Leadership Event is one-page Bootstrap v5.1.3 CSS layout for your website. Thank you for choosing TemplateMo website where you can instantly download free CSS templates at no cost.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut dolore</p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut dolore
+                 <p>Leadership Event is one-page Bootstrap v5.1.3 CSS layout for your website. Thank you for choosing TemplateMo website where you can instantly download free CSS templates at no cost.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut dolore.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut dolore
+                 Leadership Event is one-page Bootstrap v5.1.3 CSS layout for your website. Thank you for choosing TemplateMo website where you can instantly download free CSS templates at no cost.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut dolore.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut dolore
+                 </p>
+            </div>
+
+
+
+        <footer class="site-footer  p-5">
+
+            <div class="footer-container" style="height:10px;">
+                <div class="row align-items-center">
+<!--                    <div class="fixed-bottom">-->
+<!--                           <div class="col-lg-12 col-1 ">-->
+                   <div class="col-md-12">
+                        <div class="d-flex">
+                            <a href="index.html" class="navbar-brand">
+
+                                <i class="bi-bullseye brand-logo"></i>
+                                <span class="brand-text">TEZA <br> ONLINE BANKING</span>
+                            </a>
+
+                            <ul class="social-icon ms-auto">
+
+                                <li><a href="#" class="social-icon-link bi-facebook"></a></li>
+
+                                <li><a href="#" class="social-icon-link bi-instagram"></a></li>
+
+                                <li><a href="#" class="social-icon-link bi-whatsapp"></a></li>
+
+                                <li><a href="#" class="social-icon-link bi-youtube"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </footer>
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/jquery.sticky.js' %}"></script>
+        <script src="{% static 'js/click-scroll.js' %}"></script>
+        <script src="{% static 'js/custom.js' %}"></script>
+
+    </body>
+</html>

@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{% static 'fonts/material-icon/css/material-design-iconic-font.min.css' %}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <div class="main">
+        <div class="container">
+            <div class="signup-content">
+                <div class="signup-img">
+                    <img src="{% static 'images/signup-img.jpg' %}" alt="">
+                </div>
+                <div class="signup-form">
+                       <form method="POST" class="register-form" id="register-form"  data-courses-url="{% url 'bankapp:ajax_load_branches' %}">
+                        {% csrf_token %}
+                        <center><h1>Online Bank Application Form</h1></center>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstname">First Name :</label>
+                                <input type="text" name="firstname" id="firstname" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastname">Last Name :</label>
+                                <input type="text" name="lastname" id="lastname" required/>
+                            </div>
+                        </div>
+                            <div class="form-group">
+                                <label for="age">Age :</label>
+                                <input type="text" name="age" id="age" required/>
+                            </div>
+
+                        <div class="form-radio">
+                            <label for="gender" class="radio-label">Gender :</label>
+                            <div class="form-radio-item">
+                                <input type="radio" name="gender" id="male" checked>
+                                <label for="male">Male</label>
+                                <span class="check"></span>
+                            </div>
+                            <div class="form-radio-item">
+                                <input type="radio" name="gender" id="female">
+                                <label for="female">Female</label>
+                                <span class="check"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email ID :</label>
+                            <input type="email" name="email" id="email" />
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="address">Address :</label>
+                            <input type="text" name="address" id="address" required/>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="bankbranch">Bankbranch :</label>
+                            <div class="form-select">
+                                <select name="bankbranch" id="bankbranch">
+                                          <option selected value=""></option>
+                                            {% for i in branch %}
+                                         <option value="{{i.id}}">{{i.name}}</option>
+                                            {% endfor %}
+                                </select>
+                                <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="place">Subbranch :</label>
+                            <div class="form-select">
+                                <select name="place" id="place">
+
+                                </select>
+                                <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
+                            </div>
+                        </div>
+
+
+
+
+                         <div class="form-radio">
+                            <label for="Type" class="radio-label">Option :</label>
+                            <div class="form-radio-item">
+                                <input type="radio" name="Type" id="Fixed" checked>
+                                <label for="Fixed">Fixed</label>
+                                <span class="check"></span>
+                            </div>
+                             <div class="form-radio-item">
+                                <input type="radio" name="Type" id="Current" checked>
+                                <label for="Current">Current</label>
+                                <span class="check"></span>
+                            </div>
+                            <div class="form-radio-item">
+                                <input type="radio" name="Type" id="Savings">
+                                <label for="Savings">Savings</label>
+                                <span class="check"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-submit">
+                            <center><input type="submit" value="Submit Form" class="submit" name="submit" id="submit" /></center>
+                            <span class="ml-auto"><a href="{% url 'bankapp:home' %}" class="forgot-pass"><b>Logout</b></a></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $("#bankbranch").change(function () {
+        var url = $("#register-form").attr("data-courses-url");
+        var branchId = $(this).val();
+
+        $.ajax({
+        url: url,
+        data: {
+            'bankbranch': branchId
+            },
+            success: function (data) {
+                $("#place").html(data);
+                }
+                });
+                });
+    </script>
+</body>
+</html>
